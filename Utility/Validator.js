@@ -39,7 +39,6 @@ class Validator {
       task.hasOwnProperty("title") && // Check if 'title' property exists
       task.hasOwnProperty("completed") && // Check if 'completed' property exists
       task.hasOwnProperty("description") && // Check if 'description' property exists
-      task.hasOwnProperty("id") && // Check if 'id' property exists
       (task.completed == true || task.completed == false) && // Check if 'completed' property has a valid boolean value
       task.title.length != 0 && // Check if 'title' property has a non-empty string value
       task.description.length != 0 // Check if 'description' property has a non-empty string value

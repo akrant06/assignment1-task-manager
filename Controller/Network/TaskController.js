@@ -11,32 +11,92 @@ networkRouter.use(express.json());
 let taskList = [
   {
     id: 1,
-    title: "Task 1",
-    description: "This is first Task of assignment 1",
-    completed: false,
+    title: "Set up environment",
+    description: "Install Node.js, npm, and git",
+    completed: true,
   },
   {
     id: 2,
-    title: "Task 2",
-    description: "This is second Task of assignment 1",
-    completed: false,
+    title: "Create a new project",
+    description: "Create a new project using the Express application generator",
+    completed: true,
   },
   {
     id: 3,
-    title: "Task 3",
-    description: "This is third Task of assignment 1",
-    completed: false,
+    title: "Install nodemon",
+    description: "Install nodemon as a development dependency",
+    completed: true,
   },
   {
     id: 4,
-    title: "Task 4",
-    description: "This is fourth Task of assignment 1",
+    title: "Install Express",
+    description: "Install Express",
     completed: false,
   },
   {
     id: 5,
-    title: "Task 5",
-    description: "This is fifth Task of assignment 1",
+    title: "Install Mongoose",
+    description: "Install Mongoose",
+    completed: false,
+  },
+  {
+    id: 6,
+    title: "Install Morgan",
+    description: "Install Morgan",
+    completed: false,
+  },
+  {
+    id: 7,
+    title: "Install body-parser",
+    description: "Install body-parser",
+    completed: false,
+  },
+  {
+    id: 8,
+    title: "Install cors",
+    description: "Install cors",
+    completed: false,
+  },
+  {
+    id: 9,
+    title: "Install passport",
+    description: "Install passport",
+    completed: false,
+  },
+  {
+    id: 10,
+    title: "Install passport-local",
+    description: "Install passport-local",
+    completed: false,
+  },
+  {
+    id: 11,
+    title: "Install passport-local-mongoose",
+    description: "Install passport-local-mongoose",
+    completed: false,
+  },
+  {
+    id: 12,
+    title: "Install express-session",
+    description: "Install express-session",
+    completed: false,
+  },
+  {
+    id: 13,
+    title: "Install connect-mongo",
+    description: "Install connect-mongo",
+    completed: false,
+  },
+  {
+    id: 14,
+    title: "Install dotenv",
+    description: "Install dotenv",
+    completed: false,
+  },
+  {
+    id: 15,
+    title: "Install jsonwebtoken",
+    description: "Install jsonwebtoken",
     completed: false,
   },
 ];
@@ -68,7 +128,7 @@ networkRouter.post("/", (req, res) => {
     task.id = taskList.length + 1;
     taskList.push(task);
     // Send the new task object as a response
-    res.send(task);
+    res.status(201).send(task);
   } else {
     res.status(400).send("Please check request and send valid data.");
   }
@@ -86,7 +146,7 @@ networkRouter.put("/:id", (req, res) => {
       task.description = taskbody.description;
       task.completed = taskbody.completed;
       // Send the updated task object as a response
-      res.send(task);
+      res.status(200).send(task);
     } else {
       // Send a 404 status with the message "Task not found"
       res.status(404).send("Task not found");
@@ -104,8 +164,8 @@ networkRouter.delete("/:id", (req, res) => {
   if (taskIndex !== -1) {
     // Remove the task from the taskList array
     taskList.splice(taskIndex, 1);
-    // Send a 204 status (No Content) as a response
-    res.status(204).send("Task removed successfully");
+    // Send a 200 status (No Content) as a response
+    res.status(200).send("Task removed successfully");
   } else {
     // Send a 404 status with the message "Task not found"
     res.status(404).send("Task not found");

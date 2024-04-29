@@ -1,7 +1,7 @@
 const express = require("express");
 const routes = require("express").Router();
 const app = express();
-const port = 8080;
+const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
